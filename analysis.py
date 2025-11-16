@@ -459,7 +459,7 @@ def run_analyze_cluster_job(job_id: str):
         jobs[job_id]["error"] = str(e)
 
 @app.post("/analyze_cluster")
-def analyze_cluster():
+def analyze_cluster(background_tasks: BackgroundTasks):
     job_id = str(uuid.uuid4())
 
     jobs[job_id] = {
