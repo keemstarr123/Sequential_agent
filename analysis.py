@@ -415,3 +415,9 @@ def analyze_cluster():
         "fourc_analysis": FourC_output.model_dump(),
         "marketing_strategy": Marketing_strategist_output.model_dump(),
     }
+if __name__ == "__main__":
+    uvicorn.run(
+        app,
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 8000)),
+    )
