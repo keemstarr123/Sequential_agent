@@ -378,7 +378,7 @@ start = time.time()
 print("Analyzing customer cluster data...")
 
 
-@app.get("/analyze_cluster")
+@app.post("/analyze_cluster")
 def analyze_cluster():
     pattern_output = pattern_parser.parse(Pattern_Analyst.invoke({
         "messages": [{"role": "user", "content": "Analyze the following customer cluster data and provide insights according to your role as Pattern Analyst Agent. Use the get_record() tool to inspect the DataFrame as needed. DO NOT EXCEED 10 QUERIES."}]
