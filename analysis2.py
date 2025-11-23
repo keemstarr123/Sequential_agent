@@ -939,7 +939,7 @@ def implementation_planner_agent(req: ImplementationInput):
             result.model_dump()
         )
 
-    return {"implementation_plan": result}
+    return {"implementation_plan": result.model.dump()}
 
 @app.get("/analysis_result")
 def analysis_result():
