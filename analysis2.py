@@ -738,16 +738,16 @@ def run_analyze_cluster_job(run_id: str, req: AzureUrlIngestRequest2):
         if req.id == "1" or req.id == "0":
             analysis_id = "EtKEJA3lpCjEOz289wdN" if req.id == "1" else "hNXinSgZn1YBr9IkCJVF"
             update_run(run_id, {"status": JobStatus.RUNNING.value})
-            time.sleep(30)
+            time.sleep(10)
             update_step(run_id, "DataBricks", JobStatus.COMPLETED)
             update_step(run_id, "patternAnalyst", JobStatus.RUNNING)
-            time.sleep(30)
+            time.sleep(10)
             update_step(run_id, "patternAnalyst", JobStatus.COMPLETED)
             update_step(run_id, "fourCAnalyst", JobStatus.RUNNING)
-            time.sleep(20)
+            time.sleep(10)
             update_step(run_id, "fourCAnalyst", JobStatus.COMPLETED)
             update_step(run_id, "marketingStrategist", JobStatus.RUNNING)
-            time.sleep(20)
+            time.sleep(10)
             update_step(run_id, "marketingStrategist", JobStatus.COMPLETED)
             update_step(run_id, "videoMakingAgent", JobStatus.RUNNING)
             time.sleep(10)
@@ -906,7 +906,7 @@ def check_run(query: RunCheckRequest):
         progress.append(step_info.get("status", "queued"))
     return {"progress": sum([1 for s in progress if s == "completed"])}
 
-@app.get("/implementation")
+@app.post("/implementation")
 def implementation_planner_agent(req: ImplementationInput):
     if solution_idx == 0:
         result = db.collection(IMPLEMENTATION_COLLECTION).document("XYllWNGqJbZitKvG5ROI").get()
