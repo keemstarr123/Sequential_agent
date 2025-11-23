@@ -119,11 +119,14 @@ cse_id = os.getenv("GOOGLE_CSE_ID")
 client = genai.Client(api_key=gcp_key)
 openai_client =  OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 sas_token = os.getenv("SAS_TOKEN")
+json_data = json.loads(os.getenv("FIREBASE_ACC"))
+with open("service-account.json", "w") as f:
+    json.dump(json_data, f)
 
 # ----------------------------
 # FIREBASE
 # ----------------------------
-creds = service_account.Credentials.from_service_account_file("GCPServiceAccount.json")
+creds = service_account.Credentials.from_service_account_file("service-account.json")
 db = firestore.Client(credentials=creds, project="foresee-80b0c")
 
 RUNS_COLLECTION = "runs"       # orchestration/progress
