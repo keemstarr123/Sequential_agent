@@ -908,9 +908,9 @@ def check_run(query: RunCheckRequest):
 
 @app.post("/implementation")
 def implementation_planner_agent(req: ImplementationInput):
-    if solution_idx == 0:
+    if req.solution_idx == 0:
         result = db.collection(IMPLEMENTATION_COLLECTION).document("XYllWNGqJbZitKvG5ROI").get()
-    elif solution_idx == 1:
+    elif req.solution_idx == 1:
         result = db.collection(IMPLEMENTATION_COLLECTION).document("KYfY5tlLImNXvgTUSHJR").get()
     else:
         analysis_id = req.analysis_id
