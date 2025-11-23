@@ -735,8 +735,8 @@ def get_databricks_run_status(run_id: int | str) -> dict:
 
 def run_analyze_cluster_job(run_id: str, req: AzureUrlIngestRequest2):
     try:
-        if req.id == 1 or req.id == 0:
-            analysis_id = "EtKEJA3lpCjEOz289wdN" if req.id == 1 else "hNXinSgZn1YBr9IkCJVF"
+        if req.id == "1" or req.id == "0":
+            analysis_id = "EtKEJA3lpCjEOz289wdN" if req.id == "1" else "hNXinSgZn1YBr9IkCJVF"
             update_run(run_id, {"status": JobStatus.RUNNING.value})
             time.sleep(30)
             update_step(run_id, "DataBricks", JobStatus.COMPLETED)
