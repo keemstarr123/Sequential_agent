@@ -6,7 +6,7 @@ aiosignal==1.4.0
 azure-storage-blob==12.27.1
 google-cloud-firestore==2.21.0
 alabaster==0.7.16
-alembic==1.17.1
+alembic==1.14.0
 annotated-doc==0.0.3
 annotated-types==0.7.0
 anthropic==0.72.0
@@ -220,6 +220,7 @@ yarl==1.22.0
 youtube-transcript-api==1.2.3
 zipp==3.23.0
 zstandard==0.25.0
+
 
 
 
